@@ -13,7 +13,6 @@ Implementación de lo tipos de datos básicos con arreglos y con listas enlazada
 ### UNIDAD III) Tipos de datos no lineales.
 
 Árboles. El tipo abstracto de datos árbol. El tipo abstracto de datos árbol binario. Distintas representaciones. Aplicaciones.
-
 Grafos. Definiciones. Grafos no dirigidos y dígrafos. El tipo abstracto de datos grafo. Representación con matriz de adyacencia y con listas de adyacencia. Ciclo euleriano y ciclo hamiltoniano. Recorrido en un grafo: en profundidad y en amplitud. Árbol de recubrimiento mínimo. Algoritmo de Prim. Camino en un grafo, el problema de los caminos mínimos. Algoritmos de Dijkstra, Floyd y Warshall.
 
 ### UNIDAD IV) Ordenamiento
