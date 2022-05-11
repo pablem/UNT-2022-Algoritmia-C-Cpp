@@ -12,13 +12,13 @@
 
 ## TEMAS
 
-### UNIDAD I) Algoritmos
+### UNIDAD I. Algoritmos
     Notación O grande. 
     Recursión, divide & conquer, balance, programación dinámica, técnica greedy. 
     Clases de problemas P y NP, y problemas NP completos.
-### UNIDAD III) Tipos de datos no lineales
+### UNIDAD III. Tipos de datos no lineales
     Especificaciones formales. Especificación algebraica.
     ADTs de datos Pila, Lista y Lista Circular. Aplicaciones.
     Implementación con arreglos y con listas enlazadas. Implementaciones con variables estáticas y dinámicas.
-### UNIDAD IV) Ordenamiento
-### UNIDAD V) Búsqueda
+### UNIDAD IV. Ordenamiento
+### UNIDAD V. Búsqueda
