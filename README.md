@@ -7,9 +7,7 @@ Definición. Características. Complejidad de algoritmos. Notación O grande. T�
 
 ### UNIDAD II) Tipos abstractos de datos básicos.
 Introducción a las especificaciones formales. Especificación algebraica.
-
 El tipo abstracto de datos Pila. El tipo abstracto de datos Fila. El tipo abstracto de datos Lista y Lista Circular. Aplicaciones.
-
 Implementación de lo tipos de datos básicos con arreglos y con listas enlazadas. Comparación entre implementaciones con variables estáticas y dinámicas. Limitaciones y ventajas.
 
 ### UNIDAD III) Tipos de datos no lineales.
@@ -23,13 +21,10 @@ Grafos. Definiciones. Grafos no dirigidos y dígrafos. El tipo abstracto de dato
 El problema de clasificación. Tiempo de ejecución. Memoria necesaria. Estabilidad. Sensibilidad.
 Métodos simples: Ordenación por selección, por inserción directa, por intercambio directo. Complejidad de los algoritmos simples. Limitaciones.
 Métodos mejorados: Ordenación por el método de incrementos decrecientes, Ordenación por el método rápido, Ordenación por mezcla. El tipo abstracto de datos Cola de Prioridad. Montículo. Ordenación por el método del montículo. Método de ordenación por residuos. Análisis de la complejidad de cada método. Comparación de los distintos métodos.
-
 Métodos lineales de clasificación para claves particulares.
-
 Ordenación externa. Métodos de mezcla.
 
 ### UNIDAD V) Búsqueda.
 
 El tipo abstracto de datos tabla. Técnicas básicas de búsqueda: Búsqueda secuencial, Búsqueda binaria. Búsqueda en árboles binarios: en árboles binarios de búsqueda, en árboles binarios de búsqueda balanceados. Análisis de la altura de cada tipo de árbol y costo de las operaciones. Búsqueda en árboles generales: árboles multivías, árboles B. Algoritmos y complejidad.
-
 Dispersión. Funciones de dispersión. Colisión, soluciones. -
