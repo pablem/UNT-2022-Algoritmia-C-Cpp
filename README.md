@@ -1,4 +1,4 @@
-# Algoritmos y Estructura de Datos
+# Algoritmos y Estructuras de Datos
 
 ## TEMAS
 
