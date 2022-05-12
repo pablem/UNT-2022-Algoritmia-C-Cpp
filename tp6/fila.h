@@ -34,7 +34,8 @@ bool igualF(FILA F1, FILA F2);
 // FILA concat(FILA F1, FILA F2);
 // FILA invertir(FILA F);
 //
-FILA mezclar(FILA, FILA );
+FILA mezclar(FILA *, FILA *);
+
 
 //IMPLEMENTACION
 
@@ -71,7 +72,7 @@ FILA enfila(FILA F, item x){
 		F.final->siguiente = nuevo;
 	}
 	F.final = nuevo;
-	F.altura++; //verificar
+	F.altura++;
 	return F;
 }
 
@@ -89,7 +90,7 @@ FILA defila(FILA F){
 }
 
 void mostrar(FILA F){
-	printf("Frente --> ");
+	printf("Frente--> ");
 	while(F.frente != NULL){
 		printf("%d -> ", F.frente->dato);
 		F.frente = F.frente->siguiente;
@@ -118,19 +119,31 @@ bool igualF(FILA F1, FILA F2) {
 
 //función punto 4) 
 
-FILA mezclar(FILA F1, FILA F2)//pasar parametro por referencia 
+FILA mezclar(FILA *F1, FILA *F2)//pasar parametro por referencia 
 {
 	item aux;
 
-	if(esFilaVacia(F1) && esFilaVacia(F2)) { 
+	if(esFilaVacia(*F1) && esFilaVacia(*F2)) { 
 		return filaVacia();
 	} else {
-		if(frente(F1) >= frente(F2)) {
-			aux = frente(F1);
-			return enfila(mezclar(defila(F1), F2), aux); //??
+		if(esFilaVacia(*F1)) {
+			aux = frente(*F2);
+			*F2 = defila(*F2);
+			return enfila(mezclar(F1, F2), aux);
+		}
+		if(esFilaVacia(*F2)) {
+			aux = frente(*F1);
+			*F1 = defila(*F1);
+			return enfila(mezclar(F1, F2), aux);
+		}
+		if(frente(*F1) < frente(*F2)) {
+			aux = frente(*F1);
+			*F1 = defila(*F1);
+			return enfila(mezclar(F1, F2), aux);
 		} else {
-			aux = frente(F2);
-			return enfila(mezclar(F1, defila(F2)), aux); //??
+			aux = frente(*F2);
+			*F2 = defila(*F2);
+			return enfila(mezclar(F1, F2), aux);
 		}
 	}
 }

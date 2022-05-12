@@ -70,9 +70,10 @@ int main() {
 
 	printf("\n14.Borro el elemento en el frente de la fila, resultado: \n");
 	F = defila(F);
+	printf("\n14.Fila F1: ");
 	mostrar(F);
 
-	printf("\n14.Creo una fila nueva F2: \n");
+	printf("\n14.Creo una fila nueva F2: ");
 	FILA F2 = filaVacia();
 	F2=enfila(F2,1);
 	F2=enfila(F2,4);
@@ -80,14 +81,16 @@ int main() {
 	F2=enfila(F2,7);
 	mostrar(F2);
 	
-	printf("\n14.Comparo F1 con F2. Mensaje esperado: 'NO son iguales':  ");
- 	if(igualF(F, F2))
-    	printf("Son iguales\n");
-    else
-    	printf("NO son iguales\n");
+	// printf("\n14.Comparo F1 con F2. Mensaje esperado: 'NO son iguales':  ");
+ 	// if(igualF(F, F2))
+    // 	printf("Son iguales\n");
+    // else
+    // 	printf("NO son iguales\n");
 
-	printf("\n14.Mezclo F1 con F2. Resultado: \n");
-	mostrar(mezclar(F, F2));
+	printf("\n14.Mezclo F1 con F2. Fila resultante: ");
+	FILA F3;
+	F3 = mezclar(&F, &F2);
+	mostrar(F3);
 
 
     printf("\n15.Libero la memoria reservada en forma din�mica\n");
