@@ -87,11 +87,13 @@ int main() {
     // else
     // 	printf("NO son iguales\n");
 
-	printf("\n14.Mezclo F1 con F2. Fila resultante: ");
-	FILA F3;
-	F3 = mezclar(&F, &F2);
-	mostrar(F3);
+	// printf("\n14.Mezclo F1 con F2. Fila resultante: ");
+	// mostrar(mezclar(&F, &F2));
 
+	printf("\n14.Mezclo F1 con F2. Fila resultante: ");
+	FILA F3 = filaVacia();
+	F3 = mezclar2(&F, &F2, F3);
+	mostrar(F3);
 
     printf("\n15.Libero la memoria reservada en forma din�mica\n");
     while(!esFilaVacia(F))

@@ -35,6 +35,7 @@ bool igualF(FILA F1, FILA F2);
 // FILA invertir(FILA F);
 //
 FILA mezclar(FILA *, FILA *);
+FILA mezclar2(FILA *, FILA *, FILA);
 
 
 //IMPLEMENTACION
@@ -126,24 +127,54 @@ FILA mezclar(FILA *F1, FILA *F2)//pasar parametro por referencia
 	if(esFilaVacia(*F1) && esFilaVacia(*F2)) { 
 		return filaVacia();
 	} else {
-		if(esFilaVacia(*F1)) {
-			aux = frente(*F2);
-			*F2 = defila(*F2);
-			return enfila(mezclar(F1, F2), aux);
-		}
-		if(esFilaVacia(*F2)) {
-			aux = frente(*F1);
-			*F1 = defila(*F1);
-			return enfila(mezclar(F1, F2), aux);
-		}
-		if(frente(*F1) < frente(*F2)) {
-			aux = frente(*F1);
-			*F1 = defila(*F1);
-			return enfila(mezclar(F1, F2), aux);
+		if(esFilaVacia(*F1) || esFilaVacia(*F2)) {
+			if(esFilaVacia(*F1)) {
+				aux = frente(*F2);
+				*F2 = defila(*F2);
+			} else {
+				aux = frente(*F1);
+				*F1 = defila(*F1);
+			}
 		} else {
-			aux = frente(*F2);
-			*F2 = defila(*F2);
-			return enfila(mezclar(F1, F2), aux);
+			if(frente(*F1) < frente(*F2)) {
+				aux = frente(*F1);
+				*F1 = defila(*F1);
+			} else {
+				aux = frente(*F2);
+				*F2 = defila(*F2);
+			}
+		}
+		return enfila(mezclar(F1,F2), aux);
+	}
+}
+
+FILA mezclar2(FILA *F1, FILA *F2, FILA F3)//pasar parametro por referencia 
+{
+	item aux;
+
+	if(esFilaVacia(*F1) && esFilaVacia(*F2)) { 
+		return F3;
+	} else {
+		if(esFilaVacia(*F1) || esFilaVacia(*F2)) {
+			if(esFilaVacia(*F1)) {
+				aux = frente(*F2);
+				*F2 = defila(*F2);
+				F3 = enfila(mezclar2(F1, F2, F3), aux);
+			} else {
+				aux = frente(*F1);
+				*F1 = defila(*F1);
+				F3 = enfila(mezclar2(F1, F2, F3), aux);
+			}
+		} else {
+			if(frente(*F1) >= frente(*F2)) {
+				aux = frente(*F1);
+				*F1 = defila(*F1);
+				F3 = enfila(mezclar2(F1, F2, F3), aux);
+			} else {
+				aux = frente(*F2);
+				*F2 = defila(*F2);
+				F3 = enfila(mezclar2(F1, F2, F3), aux);
+			}
 		}
 	}
 }
