@@ -1,7 +1,7 @@
 # Algoritmos y Estructuras de Datos
 ## TRABAJOS PRÁCTICOS
 
-+ TP1: Punteros - Uso de variables dinámicas - Listas Enlazadas
++ TP1: Punteros - Uso de variables dinámicas - Listas (estructura fundamental de datos)
 + TP2: Complejidad de algoritmos - Notación O Grande
 + TP3: Técnicas de diseño - Recursión - D&C
 + TP4: Especificaciones algebraicas - Tipos Abstractos de Datos (ADT)
