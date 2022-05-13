@@ -40,14 +40,16 @@ int main() {
 	mostrar(F);
 
 	printf("\n11.Inserto y muestro dos elementos en la fila: ");
-	F=enfila(F,1);
-	F=enfila(F,2);
+	F=enfila(F,33);
+	F=enfila(F,-9);
 	mostrar(F);
 
 	printf("\n12.Borro los dos elementos y muestro: ");
 	F = defila(F);
 	F = defila(F);
 	mostrar(F);
+
+	// printf("\n*25. Suma de numeros positivos: %d\n", sumarPositivos(&F));
 
 	printf("\n13.Inserto 5 elementos en la fila\n");
 	F=enfila(F,1);

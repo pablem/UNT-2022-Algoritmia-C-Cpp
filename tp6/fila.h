@@ -38,7 +38,8 @@ bool igualF(FILA F1, FILA F2);
 //
 FILA mezclar(FILA *, FILA *);
 FILA mezclar2(FILA *, FILA *, FILA);
-
+//
+item sumarPositivos(FILA *F);
 
 //IMPLEMENTACION
 
@@ -185,4 +186,16 @@ FILA mezclar2(FILA *F1, FILA *F2, FILA F3)
 			}
 		}
 	}
+}
+
+item sumarPositivos(FILA *F)
+{
+    item suma = 0;
+    while(!esFilaVacia(*F)) {
+        if(frente(*F) > 0) {
+            suma += frente(*F);
+        }
+        *F = defila(*F);
+    }
+    return suma;
 }
