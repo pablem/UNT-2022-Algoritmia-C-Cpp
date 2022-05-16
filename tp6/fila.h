@@ -157,7 +157,7 @@ FILA mezclar(FILA *F1, FILA *F2)
 	}
 }
 
-FILA mezclar2(FILA *F1, FILA *F2, FILA F3)
+FILA mezclar2(FILA *F1, FILA *F2, FILA F3) //REACER!
 {
 	item aux;
 
