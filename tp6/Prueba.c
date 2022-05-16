@@ -106,12 +106,13 @@ int main() {
 	printf("Fila F2: ");
 	mostrar(F2);
 	printf("Fila F3: ");
-	mostrar(mezclar(&F, &F2));
-
-	// printf("\n14.Mezclo F1 con F2. Fila resultante: ");
-	// FILA F3 = filaVacia();
-	// F3 = mezclar2(&F, &F2, F3);
-	// mostrar(F3);
+	// mostrar(mezclar(&F, &F2));
+	FILA F3 = filaVacia();
+	mostrar(mezclar2(&F, &F2, F3));
+	printf("Fila F1: ");
+	mostrar(F);
+	printf("Fila F2: ");
+	mostrar(F2);
 
     printf("\n24.Libero la memoria reservada en forma din�mica\n");
     while(!esFilaVacia(F))

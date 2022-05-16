@@ -37,7 +37,7 @@ bool igualF(FILA F1, FILA F2);
 // FILA invertir(FILA F);
 //
 FILA mezclar(FILA *, FILA *);
-FILA mezclar2(FILA *, FILA *, FILA);
+FILA mezclar2(FILA *, FILA *, FILA );
 //
 item sumarPositivos(FILA *F);
 
@@ -164,27 +164,26 @@ FILA mezclar2(FILA *F1, FILA *F2, FILA F3) //REACER!
 	if(esFilaVacia(*F1) && esFilaVacia(*F2)) { 
 		return F3;
 	} else {
+		FILA F4 = filaVacia();
 		if(esFilaVacia(*F1) || esFilaVacia(*F2)) {
 			if(esFilaVacia(*F1)) {
 				aux = frente(*F2);
 				*F2 = defila(*F2);
-				F3 = enfila(mezclar2(F1, F2, F3), aux);
 			} else {
 				aux = frente(*F1);
 				*F1 = defila(*F1);
-				F3 = enfila(mezclar2(F1, F2, F3), aux);
 			}
 		} else {
-			if(frente(*F1) >= frente(*F2)) {
+			if(frente(*F1) < frente(*F2)) {
 				aux = frente(*F1);
 				*F1 = defila(*F1);
-				F3 = enfila(mezclar2(F1, F2, F3), aux);
 			} else {
 				aux = frente(*F2);
 				*F2 = defila(*F2);
-				F3 = enfila(mezclar2(F1, F2, F3), aux);
 			}
 		}
+		F3 = enfila(F3,aux);
+		return mezclar2(F1,F2,F3);
 	}
 }
 
