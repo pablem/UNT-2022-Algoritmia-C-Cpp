@@ -98,9 +98,11 @@ int main() {
 	lc=LCInsertar(lc,5);
 	mostrar(lc);
 
-	printf("\n23. Funcion contar k=4. Cantidad: %d\n", ContarK(&lc,4));
+	// printf("\n23. Funcion contar k=4. Cantidad: %d\n", ContarK(&lc,4));
 
-	printf("\n24. Funcion contar k=7. Cantidad: %d\n", ContarK(&lc,7));
+	// printf("\n24. Funcion contar k=7. Cantidad: %d\n", ContarK(&lc,7));
+
+	printf("\n24. Funcion borrar k=7. Cantidad: %d\n", LCBorrarK(lc,7));
 
 	printf("\n25. Muestro la LC luego de la funcion: \n");
 	mostrar(lc);

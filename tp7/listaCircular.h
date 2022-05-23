@@ -26,6 +26,7 @@ bool esLCVacia(LC );
 item LCValor(LC );
 LC LCInsertar(LC , item );
 LC LCBorrar(LC );
+LC LCBorrarK(LC , item );
 LC LCRotar(LC );
 //
 void mostrar(LC );
@@ -76,8 +77,8 @@ LC LCInsertar(LC lc, item x)
 LC LCBorrar(LC lc) 
 {
 	struct nodo *aux;
-	aux = lc.cabecera->siguiente;
 	if(!esLCVacia(lc)) {
+		aux = lc.cabecera->siguiente;
 		if(lc.cabecera->siguiente == lc.cabecera)
 			lc.cabecera = NULL;
 		else {
@@ -85,6 +86,21 @@ LC LCBorrar(LC lc)
 		}
 		free(aux);
 		lc.altura--;
+	}
+	return lc;
+}
+LC LCBorrarK(LC lc, item k)
+{
+	if(!esLCVacia(lc)) {
+		int aux = lc.altura;
+		while(aux != 0) {
+			if(lc.cabecera->dato == k) {
+				lc = LCBorrar(lc);
+			} else {
+				lc = LCRotar(lc);
+			}
+			aux--;
+		}
 	}
 	return lc;
 }
