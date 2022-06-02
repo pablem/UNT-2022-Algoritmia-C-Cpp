@@ -73,9 +73,9 @@ int main()
 
     // Invocación de la función Listado:
 
-    char arre[15];		    //Contiene el cóigo provisorio dentro del Listado
+    char arre[15];		//Contiene el cóigo provisorio dentro del Listado
 	COD arresal[26];	//Contiene la letra y su codigo 
-	int cont=0;			    //Mantiene el índice del arreglo arre
+	int cont=0;			//Mantiene el índice del arreglo arre
 
 	listado(T, &arre[0], &cont, &arresal[0]);
 
@@ -138,7 +138,7 @@ void listado(AB a, char arre[], int *cont, COD arresalida[])
 			arresalida[car-96].letra=car;
 			strcpy(arresalida[car-96].cod,&arre[1]);
 			printf("%s --> %c\n",arresalida[car-96].cod,arresalida[car-96].letra); //Esto permite ver por pantalla el código generado 
-                        getchar();												   //para la letra que se encuentra en la raiz de la hoja	
+                        // getchar();												   //para la letra que se encuentra en la raiz de la hoja	
 		}
 		if(!esABvacio(Derecho(a)))
 		{	(*cont)++;
