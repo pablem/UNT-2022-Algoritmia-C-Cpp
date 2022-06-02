@@ -1,33 +1,33 @@
 
-//Lic. Mar韆 Cristina Werenitzky Curia
+//Lic. Mar铆a Cristina Werenitzky Curia
 /*
 
-La funci髇 Listado se encarga de recuperar los c骴igos de Huffman para cada letra.
+La funci贸n Listado se encarga de recuperar los c贸digos de Huffman para cada letra.
 
   PARAMETROS: 
-			 - a: 醨bol de Huffman
-			 - arre[]: arreglo de caracteres que se usa para almacenar el c骴igo provisoriamente
-			 - cont: entero que indica la posici髇 del 鷏timo valor almacenado en arre
-			 - arresalida[]: arreglo del tipo COD que contiene en cada posici髇 una letra y el c骴igo de Huffman correpondiente
+			 - a: 脕rbol de Huffman
+			 - arre[]: arreglo de caracteres que se usa para almacenar el c贸digo provisoriamente
+			 - cont: entero que indica la posici贸n del 煤ltimo valor almacenado en arre
+			 - arresalida[]: arreglo del tipo COD que contiene en cada posici贸n una letra y el c贸digo de Huffman correpondiente
 
 
-  Invocaci髇 de la funci髇 Listado:
+  Invocaci贸n de la funci贸n Listado:
 
-    char arre[15];		//Contiene el c骴igo provisorio dentro del Listado
+    char arre[15];		//Contiene el c贸igo provisorio dentro del Listado
 	COD arresal[26];	//Contiene la letra y su codigo 
-	int cont=0;			//Mantiene el 韓dice del arreglo arre
+	int cont=0;			//Mantiene el 铆ndice del arreglo arre
 	AB ABHuff;
 	....
 	ABHuff=Huffman( ... );
 	listado(ABHuff, &arre[0], &cont, &arresal[0]);
 	....
 
-  Para recuperar el c骴igo de una letra determinada deben escribir:
+  Para recuperar el c贸digo de una letra determinada deben escribir:
 																	arresal[letra-96].cod
 
 
 */
-#include "ab.h" 	//Reemplazar con el nombre de su archivo
+#include "arbolBinario.h"
 #include<stdio.h>
 #include<string.h>
 #include<conio.h>
@@ -36,12 +36,11 @@ struct COD{  char letra;
 			 char cod[15];
 			};
 
-
 void listado(AB a, char arre[], int *cont, COD arresalida[])
 {
 	if(!esABvacio(a))
 	{	if(!esABvacio(Izquierdo(a)))
-		{       (*cont)++;
+		{	(*cont)++;
 			arre[*cont]='0';
 		}
 		listado(Izquierdo(a),&arre[0], cont, &arresalida[0]);
@@ -50,7 +49,7 @@ void listado(AB a, char arre[], int *cont, COD arresalida[])
 			arre[(*cont)+1]='\x0';
 			arresalida[car-96].letra=car;
 			strcpy(arresalida[car-96].cod,&arre[1]);
-			printf("%s --> %c\n",arresalida[car-96].cod,arresalida[car-96].letra); //Esto permite ver por pantalla el c骴igo generado 
+			printf("%s --> %c\n",arresalida[car-96].cod,arresalida[car-96].letra); //Esto permite ver por pantalla el c贸digo generado 
                         getch();												   //para la letra que se encuentra en la raiz de la hoja	
 		}
 		if(!esABvacio(Derecho(a)))

@@ -15,26 +15,22 @@ struct nodo {
 typedef struct nodo* AB;
 
 
-//PROTOTIPO DE LAS OPERACIONES de la LC
+//PROTOTIPO DE LAS OPERACIONES de Arbol Binario
 
 AB ABVacio();
 AB armarAB(AB, item, AB);
-bool esABVacio(AB );
-AB izquierdo(AB );
-item raizAB(AB );
-AB derecho(AB );
+bool esABvacio(AB );
+AB Izquierdo(AB );
+item Raiz(AB );
+AB Derecho(AB );
 bool pertenece(AB , item );
 //
 bool esHoja(AB );
-void mostrarPost(AB );
+void mostrarEnorden(AB );
+void mostrarPreorden(AB );
+void mostrarPostorden(AB );
 AB borrarAB(AB );
 void liberarAB(AB );
-// int longitud(LC );
-// //
-// int ContarK(LC *, item);
-// int ContarK2(LC , item, size_t);
-
-// //IMPLEMENTACION
 
 AB ABVacio() 
 {
@@ -49,19 +45,19 @@ AB armarAB(AB izq, item r, AB der)
 	nuevo->derecho = der;
 	return nuevo;
 }
-bool esABVacio(AB T)
+bool esABvacio(AB T)
 {
 	return T == NULL;
 }
-AB izquierdo(AB T) 
+AB Izquierdo(AB T) 
 {
 	return T->izquierdo;
 }
-item raizAB(AB T)
+item Raiz(AB T)
 {
 	return T->raiz;
 }
-AB derecho(AB T)
+AB Derecho(AB T)
 {
 	return T->derecho;
 }
@@ -77,28 +73,38 @@ bool esHoja(AB T)
 {
 	return T->derecho == NULL && T->izquierdo == NULL;
 }
-void mostrarPost(AB T)
+void mostrarEnorden(AB T)
 {
 	if(T != NULL) {
-		if(esHoja(T)) {
-			
-		} else {
-			if(T->izquierdo != NULL) {
-				mostrarPost(T->izquierdo);
-			} 
-			if(T->derecho != NULL) {
-				mostrarPost(T->derecho);
-			}
-		}
-		printf("%c ", T->raiz);
-	} else {
-		printf("T->NULL\n");
+		mostrarEnorden(T->izquierdo);
+		printf("%c", T->raiz);
+		mostrarEnorden(T->derecho);
+	}
+}
+void mostrarPreorden(AB T)
+{
+	if(T != NULL) {
+		printf("%c", T->raiz);
+		mostrarPreorden(T->izquierdo);
+		mostrarPreorden(T->derecho);
+	}
+}
+void mostrarPostorden(AB T)
+{
+	if(T != NULL) {
+		mostrarPostorden(T->izquierdo);
+		mostrarPostorden(T->derecho);
+		printf("%c", T->raiz);
 	}
 }
 AB borrarAB(AB T)
 {
-	free(T);
-	return NULL;
+	if(esHoja(T)) {
+		free(T);
+		return NULL;
+	} else {
+		return T;
+	}
 }
 void liberarAB(AB T)
 {
@@ -111,23 +117,3 @@ void liberarAB(AB T)
 		}
 	}
 }
-// LC LCBorrar(LC lc) 
-// {
-// 	struct nodo *aux;
-// 	if(!esLCVacia(lc)) {
-// 		aux = lc.cabecera->siguiente;
-// 		if(lc.cabecera->siguiente == lc.cabecera)
-// 			lc.cabecera = NULL;
-// 		else {
-// 			lc.cabecera->siguiente = aux->siguiente;
-// 		}
-// 		free(aux);
-// 		lc.altura--;
-// 	}
-// 	return lc;
-// }
-
-// int longitud(LC lc) {
-// 	return lc.altura;
-// }
-

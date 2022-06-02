@@ -9,8 +9,8 @@ int main() {
 	printf("\n1.Creo un AB nulo.\n");
 	AB T = ABVacio();
 
-	printf("\n2.Pruebo la funcion esABVacio. Mensaje esperado 'AB Vacío': ");
-    if(esABVacio(T))
+	printf("\n2.Pruebo la funcion esABvacio. Mensaje esperado 'AB Vacío': ");
+    if(esABvacio(T))
 		printf("AB Vacio\n");
 	else
 	    printf("AB NO Vacio\n");
@@ -28,8 +28,8 @@ int main() {
 //------------f(der)
 //--------e
 
-	printf("\n7.Pruebo la funci�n esABVacio. Mensaje esperado 'AB NO Vacío': ");
-    if(esABVacio(T))
+	printf("\n7.Pruebo la funci�n esABvacio. Mensaje esperado 'AB NO Vacío': ");
+    if(esABvacio(T))
 		printf("AB Vacio\n");
 	else
 		printf("AB NO Vacio\n");

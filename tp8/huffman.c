@@ -1,8 +1,10 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+// #include <conio.h>
 #include "arbolBinario.h"
 
-float frecuancas[] = {
+const float frecuancas[] = {
     0.45,
     0.13,
     0.12,
@@ -37,40 +39,56 @@ float frecuancas[] = {
 //     0.008336,
 //     0.002600}; // Z (25)
 
-    const size_t N = sizeof(frecuancas)/sizeof(frecuancas[0]);
+const size_t N = sizeof(frecuancas)/sizeof(frecuancas[0]);
 
 typedef struct {
     float frec;
     AB arbol;
 } tArboles;
 
+typedef struct {    
+    char letra;
+	char cod[15];
+} COD;
+
 AB arbolHuffman(tArboles *A);
+void listado(AB a, char arre[], int *cont, COD arresalida[]);
 
 int main()
 {
-    AB T, Tprueba, cb, fe;
-    tArboles arboles[N];
-    char letra = 'A';
+    // Armado del árbol de Huffman:
 
-    cb = armarAB(armarAB(NULL,'c',NULL),'*',armarAB(NULL,'b',NULL));
-    fe = armarAB(armarAB(NULL,'f',NULL),'*',armarAB(NULL,'e',NULL));
-    Tprueba = armarAB(armarAB(NULL,'a',NULL),'*',armarAB(cb,'*',armarAB(fe,'*',armarAB(NULL,'d',NULL))));
-    mostrarPost(Tprueba);
-    liberarAB(Tprueba);
-    printf("\n");
+    AB T;
+    tArboles arboles[N];
+    char letra='A';
 
     for (size_t i = 0; i < N; i++) {
         arboles[i].frec = frecuancas[i];
         arboles[i].arbol = armarAB(NULL,letra++,NULL);
     }
+    printf("\nÁrbol de Huffman: ");
     T = arbolHuffman(arboles);
-    mostrarPost(T);
+    mostrarEnorden(T);
+    printf("\n");
+
+    // Invocación de la función Listado:
+
+    char arre[15];		    //Contiene el cóigo provisorio dentro del Listado
+	COD arresal[26];	//Contiene la letra y su codigo 
+	int cont=0;			    //Mantiene el índice del arreglo arre
+
+	listado(T, &arre[0], &cont, &arresal[0]);
+
+    printf("\nCódigo letra 'A' = %c", arresal['A'-96].cod);
+    printf("\nCódigo letra 'E' = %c", arresal['E'-96].cod);
+    printf("\nCódigo letra 'F' = %c", arresal['F'-96].cod);
+
     liberarAB(T);
-  
+
     for (size_t i = 0; i < N; i++) {
         free(arboles[i].arbol);
     }
-    
+
     return 0;
 }
 
@@ -104,4 +122,29 @@ AB arbolHuffman(tArboles *A)
         minDer = A[p2].frec;
     }
     return A[p1].arbol;
+}
+
+void listado(AB a, char arre[], int *cont, COD arresalida[])
+{
+	if(!esABvacio(a))
+	{	if(!esABvacio(Izquierdo(a)))
+		{	(*cont)++;
+			arre[*cont]='0';
+		}
+		listado(Izquierdo(a),&arre[0], cont, &arresalida[0]);
+		if(esHoja(a))
+		{	char car=Raiz(a);
+			arre[(*cont)+1]='\x0';
+			arresalida[car-96].letra=car;
+			strcpy(arresalida[car-96].cod,&arre[1]);
+			printf("%s --> %c\n",arresalida[car-96].cod,arresalida[car-96].letra); //Esto permite ver por pantalla el código generado 
+                        getchar();												   //para la letra que se encuentra en la raiz de la hoja	
+		}
+		if(!esABvacio(Derecho(a)))
+		{	(*cont)++;
+			arre[*cont]='1';
+		}
+		listado(Derecho(a),&arre[0], cont, &arresalida[0]);
+		(*cont)--;
+	}
 }
