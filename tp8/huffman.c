@@ -39,7 +39,7 @@ const float frecuancas[] = {
 //     0.008336,
 //     0.002600}; // Z (25)
 
-const size_t N = sizeof(frecuancas)/sizeof(frecuancas[0]);
+size_t N = sizeof(frecuancas)/sizeof(frecuancas[0]);
 
 typedef struct {
     float frec;
@@ -60,7 +60,7 @@ int main()
 
     AB T;
     tArboles arboles[N];
-    char letra='A';
+    char letra='a';
 
     for (size_t i = 0; i < N; i++) {
         arboles[i].frec = frecuancas[i];
@@ -79,15 +79,11 @@ int main()
 
 	listado(T, &arre[0], &cont, &arresal[0]);
 
-    printf("\nCódigo letra 'A' = %c", arresal['A'-96].cod);
-    printf("\nCódigo letra 'E' = %c", arresal['E'-96].cod);
-    printf("\nCódigo letra 'F' = %c", arresal['F'-96].cod);
+    printf("\nCódigo letra 'a' = %c", arresal['a'-96].cod);
+    printf("\nCódigo letra 'e' = %c", arresal['e'-96].cod);
+    printf("\nCódigo letra 'f' = %c", arresal['f'-96].cod);
 
     liberarAB(T);
-
-    for (size_t i = 0; i < N; i++) {
-        free(arboles[i].arbol);
-    }
 
     return 0;
 }

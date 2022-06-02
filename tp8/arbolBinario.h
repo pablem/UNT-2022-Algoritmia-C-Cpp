@@ -97,23 +97,10 @@ void mostrarPostorden(AB T)
 		printf("%c", T->raiz);
 	}
 }
-AB borrarAB(AB T)
-{
-	if(esHoja(T)) {
-		free(T);
-		return NULL;
-	} else {
-		return T;
-	}
-}
+
 void liberarAB(AB T)
 {
-	if(T != NULL) {
-		if(esHoja(T)) {
-			T = borrarAB(T);
-		} else {
-			liberarAB(T->izquierdo);
-			liberarAB(T->derecho);
-		}
-	}
+	liberarAB(T->izquierdo);
+	liberarAB(T->derecho);
+	free(T);
 }
