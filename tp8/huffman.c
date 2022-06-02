@@ -4,14 +4,14 @@
 // #include <conio.h>
 #include "arbolBinario.h"
 
-const float frecuancas[] = {
+const float frecuencias[] = {
     0.45,
     0.13,
     0.12,
     0.16,
     0.09,
     0.05 };
-// float frecuancas[] = { // 26 letras
+// float frecuencias[] = { // 26 letras
 //     0.110845, // A (0)
 //     0.010895,
 //     0.048778,
@@ -39,7 +39,7 @@ const float frecuancas[] = {
 //     0.008336,
 //     0.002600}; // Z (25)
 
-size_t N = sizeof(frecuancas)/sizeof(frecuancas[0]);
+const int N = sizeof(frecuencias)/sizeof(frecuencias[0]);
 
 typedef struct {
     float frec;
@@ -63,7 +63,7 @@ int main()
     char letra='a';
 
     for (size_t i = 0; i < N; i++) {
-        arboles[i].frec = frecuancas[i];
+        arboles[i].frec = frecuencias[i];
         arboles[i].arbol = armarAB(NULL,letra++,NULL);
     }
     printf("\nÁrbol de Huffman: ");
@@ -79,9 +79,29 @@ int main()
 
 	listado(T, &arre[0], &cont, &arresal[0]);
 
-    printf("\nCódigo letra 'a' = %c", arresal['a'-96].cod);
-    printf("\nCódigo letra 'e' = %c", arresal['e'-96].cod);
-    printf("\nCódigo letra 'f' = %c", arresal['f'-96].cod);
+    char cadena[20];
+    char resultado[100];
+    // char letra;
+    // resultado[0] = "";
+    int i = 0;
+
+    printf("\nIngrese una palabra: (a-z) ");
+    gets(cadena);
+    // letra = cadena[0];
+    // for (size_t i = 0; i < strlen(cadena); i++)
+    while(letra != '\x0')
+    {
+        letra = cadena[i++];
+        if(letra > 96 && letra < 123) {
+            printf("%s", arresal[letra-96].cod);
+            // strcat(resultado[i], arresal[i].cod);
+        } else {
+            printf("%c", letra);
+            // strcat(resultado[i], letra);
+        }
+
+    }
+    // puts(resultado);
 
     liberarAB(T);
 
