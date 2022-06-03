@@ -79,29 +79,21 @@ int main()
 
 	listado(T, &arre[0], &cont, &arresal[0]);
 
+    // Generación del código a partir de una cadena ingresada
+    
     char cadena[20];
-    char resultado[100];
-    // char letra;
-    // resultado[0] = "";
     int i = 0;
-
     printf("\nIngrese una palabra: (a-z) ");
     gets(cadena);
-    // letra = cadena[0];
-    // for (size_t i = 0; i < strlen(cadena); i++)
     while(letra != '\x0')
     {
         letra = cadena[i++];
         if(letra > 96 && letra < 123) {
             printf("%s", arresal[letra-96].cod);
-            // strcat(resultado[i], arresal[i].cod);
         } else {
             printf("%c", letra);
-            // strcat(resultado[i], letra);
         }
-
     }
-    // puts(resultado);
 
     liberarAB(T);
 

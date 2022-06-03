@@ -16,17 +16,17 @@ int main() {
 	    printf("AB NO Vacio\n");
 	    
     printf("\n3.Muestro el AB vacio por pantalla:\n");
-    mostrarPost(T);
+    mostrarPreorden(T);
 
     printf("\n6.Inserto hojas y subarboles:\n");
 	T = armarAB(armarAB(NULL,'b',NULL),'a',armarAB(armarAB(NULL,'d',armarAB(NULL,'f',NULL)),'c',armarAB(NULL,'e',NULL)));
 
 //a
-//----b
+//----b*
 //----c
 //--------d
-//------------f(der)
-//--------e
+//------------f(der)*
+//--------e*
 
 	printf("\n7.Pruebo la funci�n esABvacio. Mensaje esperado 'AB NO Vacío': ");
     if(esABvacio(T))
@@ -43,27 +43,21 @@ int main() {
 	// mostrar(T);
 
     printf("\n16.Recorro el AB en orden posterior: \n");
-    mostrarPost(T);
+    mostrarPostorden(T);
 
-    // // printf("\n17.Busco si pertenece el valor 100 en la LC. Mensaje esperado 'NO Pertenece': ");
-    // // if(pertenece(T, 100))
-	// // 	printf("Pertenece\n");
-	// // else
-	// //     printf("NO Pertenece\n");
+    printf("\n17.Busco si pertenece el valor 'z' en el AB. Mensaje esperado 'NO Pertenece': ");
+    if(pertenece(T, 'z'))
+		printf("Pertenece\n");
+	else
+	    printf("NO Pertenece\n");
     
-    // // printf("\n18.Busco si pertenece el valor 3 en la LC. Mensaje esperado: 'Pertenece': ");
-    // // if(pertenece(T, 3))
-    // // 		printf("Pertenece\n");
-    // // 	else
-    // // 	    printf("NO Pertenece\n");
-
-	// printf("\n19. Roto la Lista Circular: \n");
-	// for (size_t i = 0; i < 5; i++) {
-	// 	T = LCRotar(T);
-	// 	mostrar(T);
-	// }
+    printf("\n18.Busco si pertenece el valor 'b' en el AB. Mensaje esperado: 'Pertenece': ");
+    if(pertenece(T, 'b'))
+    		printf("Pertenece\n");
+    	else
+    	    printf("NO Pertenece\n");
 	
-	// printf("\n20. Funcion contar k=4. Cantidad: %d\n", ContarK(&T,4));
+	printf("\n20. Cuento el número de hojas. Cantidad: %d\n", numeroHojas(T));
 
 	// printf("\n21. Muestro la AB luego de la funcion: \n");
 	// mostrar(T);

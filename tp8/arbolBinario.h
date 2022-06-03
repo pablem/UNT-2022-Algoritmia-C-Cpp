@@ -31,6 +31,10 @@ void mostrarPreorden(AB );
 void mostrarPostorden(AB );
 AB borrarAB(AB );
 void liberarAB(AB );
+//
+int numeroHojas(AB );
+
+// IMPLEMENTACIÓN ---------------
 
 AB ABVacio() 
 {
@@ -97,10 +101,21 @@ void mostrarPostorden(AB T)
 		printf("%c", T->raiz);
 	}
 }
-
 void liberarAB(AB T)
 {
 	liberarAB(T->izquierdo);
 	liberarAB(T->derecho);
 	free(T);
+}
+int numeroHojas(AB T)
+{
+	if(esABvacio(T)) {
+		return 0;
+	} else {
+		if(esHoja(T)) {
+			return 1;
+		} else {
+			return numeroHojas(Izquierdo(T)) + numeroHojas(Derecho(T));
+		}
+	}
 }
