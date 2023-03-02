@@ -9,7 +9,6 @@
 + TP6: ADT Filas
 + TP7: ADT Listas Circulares
 
-
 ## TEMAS
 
 ### UNIDAD I. Algoritmos
@@ -20,5 +19,5 @@
     Especificaciones formales. Especificación algebraica.
     ADTs de datos Pila, Lista y Lista Circular. Aplicaciones.
     Implementación con arreglos y con listas enlazadas. Implementaciones con variables estáticas y dinámicas.
-### UNIDAD IV. Ordenamiento.
-### UNIDAD V. Búsqueda.
+### UNIDAD IV. Ordenamiento
+### UNIDAD V. Búsqueda
